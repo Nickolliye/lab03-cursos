@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo Acadêmico - LAB03</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-destaque fw-bold" href="index.html">HOME</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="academico.html">Módulo Acadêmico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="usuario.html">Módulo de Alunos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="financeiro.html">Módulo Financeiro</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Gestão Acadêmica</h2>
+        
+        <ul class="nav nav-tabs mb-4" id="abaAcademica" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-categorias">Categorias & Trilhas</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-cursos">Cursos</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-modulos">Módulos & Aulas</button></li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- Aba Categorias -->
+            <div class="tab-pane fade show active" id="tab-categorias">
+                <div class="row">
+                    <!-- Form Categoria -->
+                    <div class="col-md-6">
+                        <div class="card p-3 mb-3">
+                            <h4 class="card-title">Nova Categoria</h4>
+                            <form id="formCategoria">
+                                <div class="mb-3">
+                                    <label>Nome da Categoria *</label>
+                                    <input type="text" id="catNome" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Descrição</label>
+                                    <textarea id="catDesc" class="form-control" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Salvar Categoria</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Form Trilha -->
+                    <div class="col-md-6">
+                        <div class="card p-3 mb-3">
+                            <h4 class="card-title">Nova Trilha de Conhecimento</h4>
+                            <form id="formTrilha">
+                                <div class="mb-3">
+                                    <label>Título da Trilha *</label>
+                                    <input type="text" id="triTitulo" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Categoria Vincúlo *</label>
+                                    <select id="triCategoria" class="form-control" required></select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Salvar Trilha</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-3">
+                    <h4>Lista de Categorias</h4>
+                    <table class="table table-bordered">
+                        <thead><tr><th>ID</th><th>Nome</th><th>Descrição</th></tr></thead>
+                        <tbody id="listaCategorias"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Aba Cursos -->
+            <div class="tab-pane fade" id="tab-cursos">
+                <div class="card p-3 mb-4">
+                    <h4>Novo Curso</h4>
+                    <form id="formCurso">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label>Título do Curso *</label>
+                                <input type="text" id="curTitulo" class="form-control" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label>Categoria *</label>
+                                <select id="curCategoria" class="form-control" required></select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label>Nível</label>
+                                <select id="curNivel" class="form-control">
+                                    <option>Iniciante</option><option>Intermediário</option><option>Avançado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Curso</button>
+                    </form>
+                </div>
+                
+                <div class="card p-3">
+                    <h4>Cursos Cadastrados</h4>
+                    <div class="mb-2">
+                        <label>Filtrar por Categoria:</label>
+                        <select id="filtroCursoCategoria" class="form-control w-25 d-inline-block"><option value="">Todas</option></select>
+                    </div>
+                    <table class="table table-bordered mt-2">
+                        <thead><tr><th>ID</th><th>Título</th><th>Categoria</th><th>Nível</th></tr></thead>
+                        <tbody id="listaCursos"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Aba Módulos e Aulas -->
+            <div class="tab-pane fade" id="tab-modulos">
+                <div class="row">
+                    <!-- Módulo -->
+                    <div class="col-md-6 mb-3">
+                        <div class="card p-3">
+                            <h4>Criar Módulo para Curso</h4>
+                            <form id="formModulo">
+                                <div class="mb-3">
+                                    <label>Selecione o Curso *</label>
+                                    <select id="modCurso" class="form-control" required></select>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Título do Módulo *</label>
+                                    <input type="text" id="modTitulo" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Ordem (Número) *</label>
+                                    <input type="number" id="modOrdem" class="form-control" required min="1">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Salvar Módulo</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Aula -->
+                    <div class="col-md-6 mb-3">
+                        <div class="card p-3">
+                            <h4>Criar Aula no Módulo</h4>
+                            <form id="formAula">
+                                <div class="mb-3">
+                                    <label>Selecione o Módulo *</label>
+                                    <select id="aulaModulo" class="form-control" required></select>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Título da Aula *</label>
+                                    <input type="text" id="aulaTitulo" class="form-control" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label>Ordem</label>
+                                        <input type="number" id="aulaOrdem" class="form-control" required min="1">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label>Duração (min)</label>
+                                        <input type="number" id="aulaDuracao" class="form-control" required min="1">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary">Salvar Aula</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts da aplicação -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/modelos.js"></script>
+    <script src="./js/bancoDados.js"></script>
+    <script src="./js/academico.js"></script>
+</body>
+</html>
