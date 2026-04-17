@@ -56,7 +56,6 @@ body {
     font-weight: bold;
 }
 
-/* Tabelas e Listas */
 .table th {
     background-color: var(--preto-principal);
     color: var(--branco-principal);

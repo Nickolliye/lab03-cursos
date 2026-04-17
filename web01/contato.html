@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma de Cursos - Contato</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/estilo.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="./img/school.svg"
+            alt="Logo"
+            class="d-inline-block align-text-top"
+          />
+          DevTech-EDU
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="./cursos.html">Cursos</a></li>
+            <li class="nav-item"><a class="nav-link" href="./trilhas.html">Trilhas</a></li>
+            <li class="nav-item"><a class="nav-link" href="./projetos.html">Projetos</a></li>
+            <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link active" href="./contato.html">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <h2>Contato e Área do Usuário</h2>
+      <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                    <h4>Cadastrar Aluno</h4>
+                    <form id="formUsuario">
+                        <div class="mb-3">
+                            <label>Nome Completo *</label>
+                            <input type="text" id="usuNome" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>E-mail *</label>
+                            <input type="email" id="usuEmail" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Senha *</label>
+                            <input type="password" id="usuSenha" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Registrar</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                    <h4>Simulador de Login</h4>
+                    <p class="text-muted">Selecione um usuário para simular as compras e progresso escolar dele nas abas Projetos e Sobre.</p>
+                    <div class="input-group mb-3">
+                        <select id="selectLogin" class="form-select">
+                            <option value="">-- Selecione o Usuário --</option>
+                        </select>
+                        <button class="btn btn-success" type="button" onclick="btnEntrar()">Confirmar Login</button>
+                    </div>
+                </div>
+
+                <div class="card p-3 mb-3">
+                    <h4>Contato da Plataforma</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label>E-mail</label>
+                            <input type="email" class="form-control" placeholder="Seu email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Mensagem</label>
+                            <textarea class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button type="button" class="btn btn-secondary w-100" onclick="alert('Mensagem enviada com sucesso!')">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bancoDados.js"></script>
+    
+    <script src="./js/models/Modelos.js"></script>
+    <script src="./js/services/UsuarioService.js"></script>
+    <script src="./js/controllers/UsuarioController.js"></script>
+  </body>
+</html>

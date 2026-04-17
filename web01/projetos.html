@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Cursos - Meu Painel</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="./img/school.svg" alt="Logo" class="d-inline-block align-text-top">
+            DevTech-EDU
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="./cursos.html">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./trilhas.html">Trilhas</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./projetos.html">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h2>Meu Painel (Projetos do Aluno)</h2>
+        <hr>
+
+        <div id="infoPainelAluno" class="mb-4">
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-3 mb-4 border-primary">
+                    <h5 class="text-primary">Nova Matrícula</h5>
+                    <p class="small text-muted">Atenção: Apenas se o seu plano garantir acesso ou se for um curso gratuito.</p>
+                    <div class="input-group">
+                        <select id="selectCursoMatricula" class="form-select"></select>
+                        <button class="btn btn-primary" onclick="btnMatricular()">Matricular</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h4>Cursos Matriculados</h4>
+                <p>Marque as aulas concluídas para gerar o seu certificado.</p>
+                <div class="accordion" id="listaMeusCursos">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalCertificado" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Certificado de Conclusão</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-5 outline-certificado border">
+                    <h1>CERTIFICADO</h1>
+                    <p class="mt-4">Certificamos que</p>
+                    <h2 id="certNome" class="text-primary">---</h2>
+                    <p>concluiu com êxito o curso</p>
+                    <h3 id="certCurso">---</h3>
+                    <p class="mt-4">Código de Verificação: <strong id="certCodigo">---</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bancoDados.js"></script>
+    
+    <script src="./js/models/Modelos.js"></script>
+    <script src="./js/services/CursoService.js"></script>
+    <script src="./js/services/UsuarioService.js"></script>
+    <script src="./js/controllers/UsuarioController.js"></script>
+    <script src="./js/controllers/ProjetosController.js"></script>
+</body>
+</html>

@@ -1,4 +1,3 @@
-// Modelagem de Dados Baseadas nas Entidades (Tabelas)
 
 class Usuario {
     constructor(idUsuario, nomeCompleto, email, senhaHash) {

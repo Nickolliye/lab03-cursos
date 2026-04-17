@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Cursos - Trilhas</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="./img/school.svg" alt="Logo" class="d-inline-block align-text-top">
+            DevTech-EDU
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="./cursos.html">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./trilhas.html">Trilhas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./projetos.html">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h2>Trilhas de Conhecimento</h2>
+        <hr>
+
+        <div class="card p-3 mb-4">
+            <h4>1. Nova Trilha</h4>
+            <form id="formTrilha">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Título da Trilha *</label>
+                        <input type="text" id="triTitulo" class="form-control" required>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label>Categoria Associada *</label>
+                        <select id="triCategoria" class="form-select" required></select>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <label>Descrição</label>
+                        <input type="text" id="triDesc" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar Trilha</button>
+            </form>
+        </div>
+
+        <div class="card p-3">
+            <h4>Trilhas Cadastradas</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaTrilhas">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bancoDados.js"></script>
+    
+    <script src="./js/models/Modelos.js"></script>
+    <script src="./js/services/CursoService.js"></script>
+    <script src="./js/controllers/CursoController.js"></script>
+</body>
+</html>

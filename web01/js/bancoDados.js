@@ -1,8 +1,5 @@
-// Banco de Dados em Memória (usando localStorage para persistir entre as páginas)
-
 const BANCO_DE_DADOS_CHAVE = 'DB_CURSOS_PLATAFORMA';
 
-// Estrutura inicial do "Banco de Dados"
 function inicializarBancoDados() {
     let dados = localStorage.getItem(BANCO_DE_DADOS_CHAVE);
     if (!dados) {
@@ -27,6 +24,21 @@ function inicializarBancoDados() {
         };
         salvarBancoDados(dados);
     }
+    
+    let obj = JSON.parse(localStorage.getItem(BANCO_DE_DADOS_CHAVE));
+    
+    if (obj.categorias.length === 0) {
+        obj.categorias.push({ idCategoria: 1, nome: "Geral", descricao: "Categoria Geral para Cursos" });
+    }
+    
+    // Força existirem apenas os cursos CSS de ID 1 e BigData, com link direto da imagem conforme solicitado pelo usuário
+    obj.cursos = [
+        { idCurso: 1, titulo: "CSS", descricao: "Estilização de páginas web com CSS.", idInstrutor: 1, idCategoria: 1, nivel: "Intermediário", dataPublicacao: new Date().toISOString(), totalAulas: 12, totalHoras: 24, imagem: './img/css.jpg' },
+        { idCurso: 2, titulo: "BigData", descricao: "Aprenda tudo sobre Big Data.", idInstrutor: 1, idCategoria: 1, nivel: "Avançado", dataPublicacao: new Date().toISOString(), totalAulas: 15, totalHoras: 30, imagem: './img/bigdata.jpg' }
+    ];
+    
+    salvarBancoDados(obj);
+    
     return JSON.parse(localStorage.getItem(BANCO_DE_DADOS_CHAVE));
 }
 
@@ -38,7 +50,6 @@ function obterDados() {
     return JSON.parse(localStorage.getItem(BANCO_DE_DADOS_CHAVE));
 }
 
-// Funções genéricas de inserção e listagem
 function inserirRegistro(tabela, registro) {
     const dados = obterDados();
     dados[tabela].push(registro);
@@ -50,5 +61,4 @@ function listarRegistros(tabela) {
     return dados[tabela];
 }
 
-// Inicializa no carregamento global do script
 inicializarBancoDados();

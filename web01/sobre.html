@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Cursos - Assinaturas</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="./img/school.svg" alt="Logo" class="d-inline-block align-text-top">
+            DevTech-EDU
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="./cursos.html">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./trilhas.html">Trilhas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./projetos.html">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h2>Assinaturas e Checkout</h2>
+        <hr>
+
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">Nossos Planos</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Acesso Total</h5>
+                        <p class="card-text">Confira os planos disponíveis no seletor ao lado. Garantimos acesso a todos os cursos durante sua assinatura!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8">
+                <div class="card p-3 mb-3">
+                    <h4>Finalizar Pagamento</h4>
+                    <div class="alert alert-info" id="infoUsuarioCheckout">
+                    </div>
+
+                    <form id="formCheckout">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label>Escolha o Plano *</label>
+                                <select id="checkoutPlano" class="form-select" onchange="renderizarPreco()" required>
+                                    <option value="">-- Escolha um Plano --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Método de Pagamento *</label>
+                                <select id="checkoutMetodo" class="form-select" required>
+                                    <option value="Cartão de Crédito">Cartão de Crédito</option>
+                                    <option value="Boleto Bancário">Boleto Bancário</option>
+                                    <option value="PIX">PIX</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 d-flex justify-content-between align-items-center">
+                            <h5>Total a Pagar: R$ <span id="checkoutValor">0,00</span></h5>
+                            <button type="submit" class="btn btn-primary btn-lg">Pagar Agora</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card p-3 text-white bg-success" id="cardRecibo" style="display:none;">
+                    <h4>Recibo da Transação</h4>
+                    <p><strong>ID Transação:</strong> <span id="reciboTrx"></span></p>
+                    <p><strong>Método:</strong> <span id="reciboMetodo"></span></p>
+                    <p><strong>Valor Pago:</strong> R$ <span id="reciboValor"></span></p>
+                    <p>Acesso liberado a plataforma! Agora você já pode simular sua matrícula guiada na aba Projetos.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bancoDados.js"></script>
+    
+    <script src="./js/models/Modelos.js"></script>
+    <script src="./js/services/UsuarioService.js"></script>
+    <script src="./js/services/FinanceiroService.js"></script>
+    <script src="./js/controllers/UsuarioController.js"></script>
+    <script src="./js/controllers/FinanceiroController.js"></script>
+</body>
+</html>
